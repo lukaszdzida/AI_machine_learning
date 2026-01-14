@@ -1,5 +1,21 @@
 # Unsupervised Learning — Model Overview
 
+This document summarizes several common unsupervised learning techniques with brief explanations, practical tips, example applications, and short scikit-learn code snippets.
+
+Source: [Original notebook — about_models.ipynb](https://github.com/lukaszdzida/AI_ML_models/blob/c1099da398b688a17d6ad0fa9a5827de6218437f/2_unsupervised_learning/about_models.ipynb)
+
+---
+
+## Contents
+- k-means clustering
+- DBSCAN
+- Principal Component Analysis (PCA)
+- t-SNE
+- Choosing the right technique
+- Next steps & references
+
+---
+
 ## k-means clustering
 
 ### What it is
@@ -133,3 +149,29 @@ X_tsne = tsne.fit_transform(X_pca)
 
 ---
 
+## Choosing the right technique
+
+Consider:
+- Goal: visualization vs. clustering vs. outlier detection vs. dimensionality reduction.
+- Data size and dimensionality: t-SNE is visualization-focused and expensive; PCA scales well.
+- Cluster shape and density: k-means assumes spherical clusters; DBSCAN handles irregular shapes and noise.
+- Need for interpretability: PCA components are linear combinations that can sometimes be interpreted; k-means centroids are easy to inspect.
+
+A common workflow:
+1. Preprocess and scale data.
+2. Use PCA for initial dimensionality reduction and exploratory analysis.
+3. Try clustering methods (k-means, DBSCAN) on reduced features.
+4. Use t-SNE for final visualization of discovered clusters (with PCA pre-step for speed).
+
+---
+
+## Next steps & suggestions
+- Add small visual examples (scatter plots of PCA/t-SNE embeddings with cluster labels).
+- Include parameter-selection plots (elbow method, silhouette scores, DBSCAN k-distance).
+- Convert this summary into a runnable notebook with synthetic or small real datasets for demonstrations.
+
+---
+
+## References
+- scikit-learn documentation: clustering, PCA, t-SNE.
+- For further reading, check original notebook: [about_models.ipynb](https://github.com/lukaszdzida/AI_ML_models/blob/c1099da398b688a17d6ad0fa9a5827de6218437f/2_unsupervised_learning/about_models.ipynb)
